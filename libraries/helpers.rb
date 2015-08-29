@@ -19,7 +19,7 @@ module ODI
 
       def dump_hash hash
         hash.map do |key, val|
-          "#{key}#{node["envbuilder"]["joiner"]}\"#{val}\"\n"
+          "#{key}#{node["envbuilder"]["assigner"]}\"#{val}\"\n"
         end.join
       end
 
