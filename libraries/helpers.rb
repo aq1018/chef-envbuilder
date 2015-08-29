@@ -18,15 +18,9 @@ module ODI
       end
 
       def dump_hash hash
-        s = ''
-        hash.each do |key, val|
-          s << "%s: %s\n" % [
-              key,
-              val
-          ]
-        end
-
-        s
+        hash.map do |key, val|
+          "#{key}#{node["envbuilder"]["joiner"]}\"#{val}\"\n"
+        end.join
       end
 
       def use_encrypted_data_bag?
