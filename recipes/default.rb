@@ -46,20 +46,6 @@ end
 
 content = dump_hash environment_data
 
-group node["envbuilder"]["group"] do
-  action :create
-end
-
-user node["envbuilder"]["owner"] do
-  gid node["envbuilder"]["group"]
-  shell "/bin/bash"
-  home "/home/%s" % [
-      node["envbuilder"]["owner"]
-  ]
-  supports :manage_home => true
-  action :create
-end
-
 directory node["envbuilder"]["base_dir"] do
   mode "0755"
   owner node["envbuilder"]["owner"]
